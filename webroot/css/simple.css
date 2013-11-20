@@ -1,14 +1,15 @@
 body > .container { position: relative; }
 .wizardBox {
-  padding: 15px;
-  box-shadow: 5px 5px 5px #555;
-  -moz-box-shadow: 5px 5px 5px #555;
-  -webkit-box-shadow: 5px 5px 5px #555;
-  position: absolute;
-  background: #fefefe;
-  /*overflow: scroll;*/
-  width: 33%; height: 33%;
-  border: #666 1px solid;
+	display: none;
+	padding: 15px;
+	box-shadow: 5px 5px 5px #555;
+	-moz-box-shadow: 5px 5px 5px #555;
+	-webkit-box-shadow: 5px 5px 5px #555;
+	position: absolute;
+	background: #fefefe;
+	/*overflow: scroll;*/
+	width: 33%; height: 33%;
+	border: #666 1px solid;
 }
 #simpleWizard0 { top: 0; left: 0; }
 #simpleWizard1 { top: 0; left: 33%; }
