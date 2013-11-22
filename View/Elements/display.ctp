@@ -6,7 +6,7 @@ if ( $wizard !== false ) {
 } else {
 	echo $this->Html->css('/wizards/css/simple'); // can't queue from an element ? :(
 	echo $this->Html->tag('div',
-		'<a class="close" href="javascript:$(\'.wizardBox\').fadeOut();">&times;</a>'.
+		'<a class="close">&times;</a>'.
 		'No help is available for this page yet.',
 		array('id' => 'simpleWizard4', 'class' => 'wizardBox', 'style' => 'display: none')
 		);
@@ -16,5 +16,8 @@ if ( $wizard !== false ) {
 <script>
 	$("#menuWizard").click(function(){
 		$(".wizardBox").toggle();
+	});
+	$(".close").click(function(){
+		$('.wizardBox').fadeOut();
 	});
 </script>

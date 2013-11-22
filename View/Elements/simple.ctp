@@ -1,6 +1,6 @@
 <?php
 echo $this->Html->tag('div',
-		'<a class="close" href="javascript:$(\'.wizardBox\').fadeOut();">&times;</a>'.
+		'<a class="close">&times;</a>'.
 		$wizard['text'],
 		array('id' => 'simpleWizard'.$wizard['position'], 'class' => 'wizardBox')
 		);
