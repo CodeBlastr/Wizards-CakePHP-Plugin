@@ -4,7 +4,7 @@ class WizardsSchema extends CakeSchema {
 	public $renames = array();
 
 	public function __construct($options = array()) {
-		parent::__construct();
+		parent::__construct($options);
 	}
 
 	public function before($event = array()) {
