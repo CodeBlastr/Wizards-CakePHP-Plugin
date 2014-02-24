@@ -3,4 +3,3 @@
 class WizardsAppModel extends AppModel {
 
 }
-
