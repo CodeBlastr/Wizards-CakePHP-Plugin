@@ -5,6 +5,7 @@
 			<th><?php echo $this->Paginator->sort('plugin');?></th>
 			<th><?php echo $this->Paginator->sort('controller');?></th>
 			<th><?php echo $this->Paginator->sort('action');?></th>
+			<th><?php echo $this->Paginator->sort('type');?></th>
 			<th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
@@ -13,10 +14,18 @@
 		<td><?php echo h($wizard['Wizard']['plugin']); ?>&nbsp;</td>
 		<td><?php echo h($wizard['Wizard']['controller']); ?>&nbsp;</td>
 		<td><?php echo h($wizard['Wizard']['action']); ?>&nbsp;</td>
+		<td><?php echo h($wizard['Wizard']['type']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $wizard['Wizard']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $wizard['Wizard']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $wizard['Wizard']['id']), null, __('Are you sure you want to delete # %s?', $wizard['Wizard']['id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $wizard['Wizard']['id']), array('class' => 'btn btn-default')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $wizard['Wizard']['id']), array('class' => 'btn btn-warning')); ?>
+			<?php
+			echo $this->Form->postLink(
+					__('Delete'),
+					array('action' => 'delete', $wizard['Wizard']['id']),
+					array('class' => 'btn btn-danger'),
+					__('Are you sure you want to delete # %s?', $wizard['Wizard']['id'])
+				);
+			?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -37,8 +46,9 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<h3><?php echo __('Other Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Wizard'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('Create New Simple Wizard'), array('action' => 'add', 'simple')); ?></li>
+		<li><?php echo $this->Html->link(__('Create New Modal Wizard'), array('action' => 'add', 'modal')); ?></li>
 	</ul>
 </div>

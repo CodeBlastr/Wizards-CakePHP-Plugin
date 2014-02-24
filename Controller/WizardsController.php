@@ -41,7 +41,7 @@ class WizardsController extends WizardsAppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($type) {
 		if ($this->request->is('post')) {
 			$this->Wizard->create();
 			if ($this->Wizard->save($this->request->data)) {
@@ -51,7 +51,7 @@ class WizardsController extends WizardsAppController {
 				$this->Session->setFlash(__('The wizard could not be saved. Please, try again.'), 'flash_warning');
 			}
 		}
-
+		$this->view = 'add_edit_'.$type;
 		//$this->set('actions', Zuha::getPluginControllerActions());
 	}
 
@@ -75,6 +75,7 @@ class WizardsController extends WizardsAppController {
 			}
 		} else {
 			$this->request->data = $this->Wizard->read(null, $id);
+			$this->view = 'add_edit_'.$this->request->data['Wizard']['type'];
 		}
 	}
 
@@ -100,12 +101,39 @@ class WizardsController extends WizardsAppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+/**
+ * Returns Wizard data for the display element.
+ *
+ * @param string $plugin
+ * @param string $controller
+ * @param string $action
+ * @return boolean|array
+ */
 	public function display($plugin, $controller, $action) {
 		$data = $this->Wizard->find('first', array(
 			'conditions' => array(
-				'plugin' => $plugin,
-				'controller' => $controller,
-				'action' => $action
+				'OR' => array(
+					array(
+						'Wizard.plugin' => '*',
+						'Wizard.controller' => '*',
+						'Wizard.action' => '*',
+						),
+					array(
+						'Wizard.plugin' => $plugin,
+						'Wizard.controller' => '*',
+						'Wizard.action' => '*',
+						),
+					array(
+						'Wizard.plugin' => $plugin,
+						'Wizard.controller' => $controller,
+						'Wizard.action' => '*',
+						),
+					array(
+						'Wizard.plugin' => $plugin,
+						'Wizard.controller' => $controller,
+						'Wizard.action' => $action,
+						)
+				)
 			)
 		));
 

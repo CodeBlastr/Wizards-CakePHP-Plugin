@@ -6,7 +6,7 @@
 		echo $this->Form->input('plugin');
 		echo $this->Form->input('controller');
 		echo $this->Form->input('action');
-		echo $this->Form->hidden('type', array('value' => 'simple'));
+		echo $this->Form->input('type', array('value' => 'simple'));
 		echo $this->Form->input('position', array('options' => array('Top Left', 'Top Center', 'Top Right', 'Middle Left', 'Middle Center', 'Middle Right', 'Bottom Left', 'Bottom Center', 'Bottom Right')));
 		echo $this->Form->input('Wizard.text', array('type' => 'richtext'));
 	?>

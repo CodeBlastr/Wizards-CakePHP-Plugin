@@ -1,6 +1,5 @@
-<?php
-echo $this->Html->tag('div',
-		'<a class="close">&times;</a>'.
-		$wizard['text'],
-		array('id' => 'simpleWizard'.$wizard['position'], 'class' => 'wizardBox')
-		);
+<?php echo $this->Html->css('/wizards/css/' . $wizard['type']); ?>
+<div class="wizardBox" id="simpleWizard-<?php echo $wizard['position'] ?>">
+	<a class="close">&times;</a>
+	<?php echo $wizard['text']; ?>
+</div>

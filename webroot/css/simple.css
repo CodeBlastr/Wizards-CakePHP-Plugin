@@ -11,12 +11,12 @@ body > .container { position: relative; }
 	width: 33%; height: 33%;
 	border: #666 1px solid;
 }
-#simpleWizard0 { top: 0; left: 0; }
-#simpleWizard1 { top: 0; left: 33%; }
-#simpleWizard2 { top: 0; right: 0; }
-#simpleWizard3 { top: 33%; left: 0; }
-#simpleWizard4 { top: 33%; left: 33%; }
-#simpleWizard5 { top: 33%; right: 0; }
-#simpleWizard6 { bottom: 0; left: 0; }
-#simpleWizard7 { bottom: 0; left: 33%; }
-#simpleWizard8 { bottom: 0; right: 0; }
+#simpleWizard-0 { top: 0; left: 0; }
+#simpleWizard-1 { top: 0; left: 33%; }
+#simpleWizard-2 { top: 0; right: 0; }
+#simpleWizard-3 { top: 33%; left: 0; }
+#simpleWizard-4 { top: 33%; left: 33%; }
+#simpleWizard-5 { top: 33%; right: 0; }
+#simpleWizard-6 { bottom: 0; left: 0; }
+#simpleWizard-7 { bottom: 0; left: 33%; }
+#simpleWizard-8 { bottom: 0; right: 0; }
