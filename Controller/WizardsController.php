@@ -30,7 +30,7 @@ class WizardsController extends WizardsAppController {
  */
 	public function view($id = null) {
 		$this->Wizard->id = $id;
-		if ( !$this->Wizard->exists() ) {
+		if (!$this->Wizard->exists()) {
 			throw new NotFoundException(__('Invalid wizard'));
 		}
 		$this->set('wizard', $this->Wizard->read(null, $id));
@@ -42,13 +42,13 @@ class WizardsController extends WizardsAppController {
  * @return void
  */
 	public function add() {
-		if ( $this->request->is('post') ) {
+		if ($this->request->is('post')) {
 			$this->Wizard->create();
-			if ( $this->Wizard->save($this->request->data) ) {
-				$this->Session->setFlash(__('The wizard has been saved'));
+			if ($this->Wizard->save($this->request->data)) {
+				$this->Session->setFlash(__('The wizard has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The wizard could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The wizard could not be saved. Please, try again.'), 'flash_warning');
 			}
 		}
 
@@ -63,15 +63,15 @@ class WizardsController extends WizardsAppController {
  */
 	public function edit($id = null) {
 		$this->Wizard->id = $id;
-		if ( !$this->Wizard->exists() ) {
+		if (!$this->Wizard->exists()) {
 			throw new NotFoundException(__('Invalid wizard'));
 		}
-		if ( $this->request->is('post') || $this->request->is('put') ) {
-			if ( $this->Wizard->save($this->request->data) ) {
-				$this->Session->setFlash(__('The wizard has been saved'));
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Wizard->save($this->request->data)) {
+				$this->Session->setFlash(__('The wizard has been saved'), 'flash_success');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The wizard could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The wizard could not be saved. Please, try again.'), 'flash_warning');
 			}
 		} else {
 			$this->request->data = $this->Wizard->read(null, $id);
@@ -85,21 +85,21 @@ class WizardsController extends WizardsAppController {
  * @return void
  */
 	public function delete($id = null) {
-		if ( !$this->request->is('post') ) {
+		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
 		$this->Wizard->id = $id;
-		if ( !$this->Wizard->exists() ) {
+		if (!$this->Wizard->exists()) {
 			throw new NotFoundException(__('Invalid wizard'));
 		}
-		if ( $this->Wizard->delete() ) {
-			$this->Session->setFlash(__('Wizard deleted'));
+		if ($this->Wizard->delete()) {
+			$this->Session->setFlash(__('Wizard deleted'), 'flash_success');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Wizard was not deleted'));
+		$this->Session->setFlash(__('Wizard was not deleted'), 'flash_danger');
 		$this->redirect(array('action' => 'index'));
 	}
-	
+
 	public function display($plugin, $controller, $action) {
 		$data = $this->Wizard->find('first', array(
 			'conditions' => array(
@@ -109,12 +109,11 @@ class WizardsController extends WizardsAppController {
 			)
 		));
 
-		if ( $data ) {
+		if ($data['Wizard']) {
 			return $data['Wizard'];
 		} else {
 			return false;
 		}
-		
 	}
 
 }
