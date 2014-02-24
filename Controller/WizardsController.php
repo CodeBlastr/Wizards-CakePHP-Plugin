@@ -112,6 +112,7 @@ class WizardsController extends WizardsAppController {
 	public function display($plugin, $controller, $action) {
 		$data = $this->Wizard->find('first', array(
 			'conditions' => array(
+				'Wizard.is_enabled' => '1',
 				'OR' => array(
 					array(
 						'Wizard.plugin' => '*',
@@ -137,11 +138,7 @@ class WizardsController extends WizardsAppController {
 			)
 		));
 
-		if ($data['Wizard']) {
-			return $data['Wizard'];
-		} else {
-			return false;
-		}
+		return ($data['Wizard']) ? $data['Wizard'] : false;
 	}
 
 }

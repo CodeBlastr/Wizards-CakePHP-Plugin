@@ -20,11 +20,11 @@
 <script type="text/javascript" src="/js/plugins/jquery.cookie.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		if ($.cookie('modalWizard')) {
+		if ($.cookie('modalWizard_<?php echo $wizard['id']?>')) {
 			// cookie exists: don't show modal
 		} else {
 			$("div#modalWizard").modal('show');
-			$.cookie('modalWizard', '<?php echo $wizard['id']?>', {path: '/'});
+			$.cookie('modalWizard_<?php echo $wizard['id']?>', 'true', {path: '/', expires: <?php echo $wizard['expires'] ?>});
 		}
 	});
 </script>

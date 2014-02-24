@@ -2,6 +2,7 @@
 	<h2><?php echo __('Wizards');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
+			<th><?php echo $this->Paginator->sort('is_enabled');?></th>
 			<th><?php echo $this->Paginator->sort('plugin');?></th>
 			<th><?php echo $this->Paginator->sort('controller');?></th>
 			<th><?php echo $this->Paginator->sort('action');?></th>
@@ -11,6 +12,7 @@
 	<?php
 	foreach ($wizards as $wizard): ?>
 	<tr>
+		<td><?php echo ($wizard['Wizard']['is_enabled']) ? '<span class="glyphicon glyphicon-ok text-success"></span>' : '<span class="glyphicon glyphicon-remove text-danger"></span>' ?>&nbsp;</td>
 		<td><?php echo h($wizard['Wizard']['plugin']); ?>&nbsp;</td>
 		<td><?php echo h($wizard['Wizard']['controller']); ?>&nbsp;</td>
 		<td><?php echo h($wizard['Wizard']['action']); ?>&nbsp;</td>
