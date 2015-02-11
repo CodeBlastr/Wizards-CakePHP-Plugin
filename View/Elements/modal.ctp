@@ -24,7 +24,7 @@
 			// cookie exists: don't show modal
 		} else {
 			$("div#modalWizard").modal('show');
-			$.cookie('modalWizard_<?php echo $wizard['id']?>', 'true', {path: '/', expires: <?php echo $wizard['expires'] ?>});
+			$.cookie('modalWizard_<?php echo $wizard['id']?>', 'true', {path: '/'<?php if (!empty($wizard['expires'])) : ?>,expires: <?php echo $wizard['expires']; endif; ?>});
 		}
 	});
 </script>
